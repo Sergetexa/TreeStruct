@@ -2,6 +2,7 @@
 #define TREECLASS_H
 #include <QAbstractItemModel>
 #include <QModelIndex>
+#include <QDebug>
 
 class TreeClass : public QAbstractItemModel
 {
@@ -15,8 +16,14 @@ public:
     QModelIndex parent(const QModelIndex &child) const;
     QModelIndex index(int row, int column, const QModelIndex &parent) const;
 
+    void setColumns(QStringList colu);
 
+private:
+    QObject itemTreeCell;
 
+protected:
+    QStringList colu;
+    QObject* _rootItem;
 
 
 };
